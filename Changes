@@ -1,5 +1,8 @@
 Revision history for Perl extension Class::DBI::Pager
 
+0.03  Fri Aug 23 03:04:05 JST 2002
+	- Fixed tests so it doesn't inherit from C::D::SQLite
+
 0.02  Fri Aug 16 22:13:39 JST 2002
 	* Fixed bug with DESTROY handled by AUTOLOAD
 	* Added previous_page, next_page in sync with Data::Page 0.13

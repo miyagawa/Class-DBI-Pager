@@ -18,7 +18,7 @@ SQL
 
 package Film;
 
-use base qw(Class::DBI::SQLite);
+use base qw(Class::DBI);
 __PACKAGE__->set_db(Main => @DSN);
 __PACKAGE__->table('film');
 __PACKAGE__->columns(Primary => qw(id));
