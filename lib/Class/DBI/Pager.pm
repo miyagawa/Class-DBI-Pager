@@ -2,7 +2,7 @@ package Class::DBI::Pager;
 
 use strict;
 use vars qw($VERSION $AUTOLOAD);
-$VERSION = 0.01;
+$VERSION = 0.02;
 
 use Data::Page;
 
@@ -113,14 +113,20 @@ details.
   Title: [% movie.title | html %]
   [% END %]
 
-  [% num = pager.entries_per_page %]
+  ### navigation like: [1] [2] [3]
+  [% FOREACH num = [pager.first_page .. pager.last_page] %]
+  [% IF num == pager.current_page %][[% num %]]
+  [% ELSE %]<a href="display?page=[% num %]">[[% num %]]</a>[% END %]
+  [% END %]
+
+  ### navigation like: prev 20 | next 20
   [% IF pager.previous_page %]
   <a href="display?page=[% pager.previous_page %]">
-  prev [% num %] items</a> |
+  prev [% pager.entries_per_page %]</a> |
   [% END %]
   [% IF pager.next_page %]
   <a href="display?page=[% pager.next_page %]">
-  next [% num %] items</a>
+  next [% pager.entries_per_page %]</a>
   [% END %]
 
 =head1 NOTE / TODO
