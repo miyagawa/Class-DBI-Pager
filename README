@@ -64,6 +64,8 @@ NOTE / TODO
 AUTHOR
     Tatsuhiko Miyagawa <miyagawa@bulknews.net>
 
+    Original idea by Tomohiro Ikebe <ikebe@cpan.org>
+
     This library is free software; you can redistribute it and/or modify it
     under the same terms as Perl itself.
 

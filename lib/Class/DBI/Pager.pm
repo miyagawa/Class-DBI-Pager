@@ -133,6 +133,8 @@ with C<DBIx::Pager> might be more memory efficient.
 
 Tatsuhiko Miyagawa E<lt>miyagawa@bulknews.netE<gt>
 
+Original idea by Tomohiro Ikebe E<lt>ikebe@cpan.orgE<gt>
+
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
 
