@@ -1,0 +1,8 @@
+Revision history for Perl extension Class::DBI::Pager
+
+0.02
+	* Fixed bug with DESTROY handled by AUTOLOAD
+	- onto CPAN
+
+0.01  Thu Aug 15 23:18:22 2002
+	- original version
