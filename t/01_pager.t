@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     eval "use DBD::SQLite";
     plan $@ ? (skip_all => 'needs DND::SQLite for testing')
-	: (tests => 36);
+	: (tests => 37);
 }
 
 use DBI;
@@ -93,6 +93,9 @@ for my $i (1..50) {
     is $pager->next_page, undef, "next_page";
 
     is $iterator->count, 11, "iterator counts 11";
+
+    my @list = $pager->search_like(title => "title 1%");
+    is scalar(@list), 11, "array context works";
 }
 
 END { unlink $DB if -e $DB }

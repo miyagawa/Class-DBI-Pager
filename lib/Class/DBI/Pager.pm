@@ -2,7 +2,7 @@ package Class::DBI::Pager;
 
 use strict;
 use vars qw($VERSION $AUTOLOAD);
-$VERSION = 0.05;
+$VERSION = 0.06;
 
 use Class::DBI 0.90;
 use Data::Page;
@@ -51,8 +51,7 @@ sub AUTOLOAD {
 	my $pager = $self->{pager} = Data::Page->new(
 	    $iter->count, $self->{entry}, $self->{curr},
 	);
-	my @data = ($iter->data)[$pager->first-1 .. $pager->last-1];
-	return $self->{pkg}->_ids_to_objects(\@data);
+	return $iter->slice($pager->first-1, $pager->last-1);
     }
     else {
 	_croak(qq(Can't locate object method "$method" via package ) . ref($self) || $self);

@@ -5,3 +5,4 @@ README
 lib/Class/DBI/Pager.pm
 t/00_compile.t
 t/01_pager.t
+META.yml                                 Module meta-data (added by MakeMaker)
