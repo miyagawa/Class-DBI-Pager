@@ -2,8 +2,9 @@ package Class::DBI::Pager;
 
 use strict;
 use vars qw($VERSION $AUTOLOAD);
-$VERSION = 0.03;
+$VERSION = 0.04;
 
+use Class::DBI 0.90;
 use Data::Page;
 
 sub import {
@@ -51,7 +52,7 @@ sub AUTOLOAD {
 	    $iter->count, $self->{entry}, $self->{curr},
 	);
 	my @data = ($iter->data)[$pager->first-1 .. $pager->last-1];
-	return $self->{pkg}->_ids_to_objects(@data); # XXX calling private method
+	return $self->{pkg}->_ids_to_objects(\@data);
     }
     else {
 	_croak(qq(Can't locate object method "$method" via package ) . ref($self) || $self);

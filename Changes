@@ -1,5 +1,8 @@
 Revision history for Perl extension Class::DBI::Pager
 
+0.04  Thu Feb 20 21:03:56 JST 2003
+	* require Class::DBI >= 0.90
+
 0.03  Fri Aug 23 03:04:05 JST 2002
 	- Fixed tests so it doesn't inherit from C::D::SQLite
 
