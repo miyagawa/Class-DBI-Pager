@@ -2,6 +2,8 @@ Revision history for Perl extension Class::DBI::Pager
 
 0.02
 	* Fixed bug with DESTROY handled by AUTOLOAD
+	* Added previous_page, next_page in sync with Data::Page 0.13
+	  (Thanks to Leon Brocard <acme@astray.com>)
 	- onto CPAN
 
 0.01  Thu Aug 15 23:18:22 2002

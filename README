@@ -42,17 +42,17 @@ EXAMPLE
       # View: (MVC's V)
       Matched [% pager.total_entries %] items.
 
-      [% WHILE movie = movies.next %]
+      [% WHILE (movie = movies.next) %]
       Title: [% movie.title | html %]
       [% END %]
 
       [% num = pager.entries_per_page %]
-      [% IF pager.current_page > 1 %]
-      <a href="display?page=[% pager.current_page - 1 %]">
+      [% IF pager.previous_page %]
+      <a href="display?page=[% pager.previous_page %]">
       prev [% num %] items</a> |
       [% END %]
-      [% IF pager.current_page < pager.last_page %]
-      <a href="display?page=[% pager.current_page + 1 %]">
+      [% IF pager.next_page %]
+      <a href="display?page=[% pager.next_page %]">
       next [% num %] items</a>
       [% END %]
 

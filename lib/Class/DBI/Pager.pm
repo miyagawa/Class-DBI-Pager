@@ -26,7 +26,8 @@ sub _pager {
 }
 
 BEGIN {
-    my @methods = qw(total_entries entries_per_page current_page first_page last_page first last);
+    my @methods = qw(total_entries entries_per_page current_page
+		     first_page last_page first last previous_page next_page);
     for my $method (@methods) {
 	no strict 'refs';
 	*$method = sub {
@@ -113,12 +114,12 @@ details.
   [% END %]
 
   [% num = pager.entries_per_page %]
-  [% IF pager.current_page > 1 %]
-  <a href="display?page=[% pager.current_page - 1 %]">
+  [% IF pager.previous_page %]
+  <a href="display?page=[% pager.previous_page %]">
   prev [% num %] items</a> |
   [% END %]
-  [% IF pager.current_page < pager.last_page %]
-  <a href="display?page=[% pager.current_page + 1 %]">
+  [% IF pager.next_page %]
+  <a href="display?page=[% pager.next_page %]">
   next [% num %] items</a>
   [% END %]
 

@@ -4,7 +4,7 @@ use Test::More;
 BEGIN {
     eval "use DBD::SQLite";
     plan $@ ? (skip_all => 'needs DND::SQLite for testing')
-	: (tests => 29);
+	: (tests => 36);
 }
 
 use DBI;
@@ -51,6 +51,8 @@ for my $i (1..50) {
     is $pager->last_page, 3, "last page is 3";
     is $pager->first, 1, "first is 1";
     is $pager->last, 20, "last is 20";
+    is $pager->previous_page, undef, "previous_page";
+    is $pager->next_page, 2, "next_page";
 
     isa_ok $iterator, 'Class::DBI::Iterator';
     is $iterator->count, 20, 'iterator counts 20';
@@ -68,6 +70,8 @@ for my $i (1..50) {
     is $pager->last_page, 3, "last page is 3";
     is $pager->first, 41, "first is 41";
     is $pager->last, 50, "last is 50";
+    is $pager->previous_page, 2, "previous_page";
+    is $pager->next_page, undef, "next_page";
 
     isa_ok $iterator, 'Class::DBI::Iterator';
     is $iterator->count, 10, 'iterator counts 10';
@@ -85,6 +89,10 @@ for my $i (1..50) {
     is $pager->last_page, 1, "last page is 1";
     is $pager->first, 1, "first is 1";
     is $pager->last, 11, "last is 11";
+    is $pager->previous_page, undef, "previous_page";
+    is $pager->next_page, undef, "next_page";
+
+    is $iterator->count, 11, "iterator counts 11";
 }
 
 END { unlink $DB if -e $DB }

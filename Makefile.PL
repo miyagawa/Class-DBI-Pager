@@ -5,7 +5,7 @@ WriteMakefile(
     'PREREQ_PM' => {
 	'Test::More' => 0.32,
 	'Class::DBI' => 0.89,
-	'Data::Page' => 0.12,
+	'Data::Page' => 0.13,
 	'Exporter::Lite' => 0.01,
     },
 );
