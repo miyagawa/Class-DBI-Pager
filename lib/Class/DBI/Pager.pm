@@ -2,7 +2,7 @@ package Class::DBI::Pager;
 
 use strict;
 use vars qw($VERSION $AUTOLOAD);
-$VERSION = 0.06;
+$VERSION = 0.07;
 
 use Class::DBI 0.90;
 use Data::Page;
